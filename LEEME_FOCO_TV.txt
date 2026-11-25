@@ -1,0 +1,42 @@
+Foco elegante en TV (LUMEN)
+===========================
+Copia estos 4 archivos encima de los de client/lib/ (mismas rutas):
+  client/lib/tv.dart        -> estilo de foco central (constantes, TvFocusable, tema, campo de texto)
+  client/lib/shell.dart     -> menu lateral
+  client/lib/settings.dart  -> filas de Ajustes
+  client/lib/theater.dart   -> aro de los botones de la ficha/hero
+
+Sin cambios en movil/escritorio: todo esto solo se pinta en modo TV.
+Ajustes rapidos (en tv.dart): kFocusWidth (grosor), kFocusShadows (sombra/halo),
+kFocusDuration / kFocusCurve (animacion), scale por defecto de TvFocusable (1.05).
+
+Actualizacion: botones blancos (Reproducir/Reanudar/Saltar intro)
+  - nuevo TvButtonFocus en tv.dart: aro fino blanco separado 4 px del boton, sin resplandor,
+    leve aumento y el icono se tiñe de rojo. Se usa en theater.dart y main.dart (anadir main.dart).
+
+Actualizacion: Peticiones + sin resplandor
+  - tv.dart: TvFocusable ya no pinta sombra ni halo (solo aro fino + leve aumento).
+  - peticiones.dart (nuevo en el zip): el aro de Explorar/Pedidas, el buscador, el campo de año y
+    "Limpiar" usan ahora exactamente el radio de su forma; el indicador rojo de Explorar/Pedidas
+    ya no tiene brillo y comparte radio con el aro.
+
+Actualizacion: Ajustes (Cuenta) en TV  -> client/lib/settings.dart
+  - Filas como "placas" redondeadas (radio 12) metidas 6 px en la tarjeta (radio 18): el aro ya no
+    se corta ni tiene esquinas cuadradas; sigue el contorno de la fila en todas, tambien primera/ultima.
+  - Selector "Descargas simultaneas" propio para TV (pista radio 24, segmentos radio 20): cada aro
+    coincide con su segmento; el elegido va en rojo.
+  - Al enfocar una fila se centra en pantalla con animacion suave.
+
+Actualizacion: Perfiles en TV  -> client/lib/profiles.dart (+ tv.dart con TvFocusBuilder y TvFocusRing)
+  - Selector "Quien esta viendo": aro circular concentrico con el avatar (no el rectangulo de la ficha),
+    el activo lleva aro tenue, foco inicial en el perfil activo.
+  - Editar perfil: avatar de cabecera y rejilla de avatares con aro circular (elegido = rojo, foco = blanco);
+    campo de nombre sin etiqueta/ayuda dentro (el aro coincide con el campo); boton eliminar y casilla de
+    importar con aro del radio exacto de su forma; contenido en columna centrada (max 760 px).
+  - Teclado PIN: teclas de 76 px y fondo que se aclara al enfocar.
+
+Actualizacion: busqueda en el panel de inicio (TV)  -> client/lib/theater.dart y client/lib/news.dart
+  - La lupa suelta pasa a ser un boton "Buscar" (pildora de 46 px, icono + nombre, fondo oscuro translucido).
+  - Al abrirlo: campo en forma de pildora (radio 23) con su boton de cerrar; el aro de TvTextEntry coincide.
+  - La campanita de Novedades pasa a circulo de 46 px a juego (solo TV).
+  - Resultados: mas margen bajo la barra y sin recorte del zoom de las caratulas.

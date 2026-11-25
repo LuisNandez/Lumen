@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- TV (Android TV / Fire TV): PNG plano en drawable, sin adaptativo. -->
+    <item name="app_icon" type="drawable">@drawable/ic_launcher_tv</item>
+</resources>

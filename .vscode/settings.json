@@ -1,0 +1,5 @@
+{
+    "cmake.sourceDirectory": "C:/dev/aplicaciones/mi_streaming/windows",
+    "cmake.ignoreCMakeListsMissing": true,
+    "java.configuration.updateBuildConfiguration": "interactive"
+}

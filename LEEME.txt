@@ -1,0 +1,14 @@
+Lumen - cambios acumulados (copia cada archivo en su misma ruta, sobrescribiendo)
+
+Chat de voz (README, Fase 17/17b) y modo TV (Fase 18).
+  client/lib/tv.dart                (NUEVO: detección de TV, tema con foco, TvFocusable)
+  client/lib/voice.dart             (NUEVO: chat de voz; ahora con modo "solo escuchar")
+  client/lib/main.dart, shell.dart, sala.dart, cinema.dart, remote.dart, native.dart
+  client/android/app/src/main/kotlin/com/example/client/MainActivity.kt   (isTv)
+  client/android/app/src/main/AndroidManifest.xml, app/build.gradle.kts, app/proguard-rules.pro
+  client/pubspec.yaml               (flutter_webrtc; versión 0.1.8+14)
+  packages/server_core/lib/src/remote.dart   (servidor: señalización de voz; recompilar)
+  README.md
+
+Pasos: cd client && flutter pub get ; recompilar servidor ; flutter build apk --release
+Probar modo TV sin TV: flutter run --dart-define=TV=true
